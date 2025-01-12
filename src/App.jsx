@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import { saveAsPDF, saveAsDOC } from './utils/fileSaver';
-import Analysis from './components/Analysis/Analysis';
+import { Analysis } from './components/Analysis/Analysis';
 
 // Reusable components
 const SectionHeader = ({ children }) => (
