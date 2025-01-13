@@ -1,27 +1,7 @@
 import React from 'react';
 import './Analysis.css';
-
-const SectionHeader = ({ children }) => (
-  <h2 className="section-header">{children}</h2>
-);
-
-const ScoreDisplay = ({ score, label }) => {
-  const getScoreColor = (score) => {
-    if (score === null) return '#666';
-    if (score >= 80) return '#4CAF50';
-    if (score >= 50) return '#FFC107';
-    return '#F44336';
-  };
-
-  return (
-    <div className="score-container">
-      <div className="score" style={{ backgroundColor: getScoreColor(score) }}>
-        {score ?? '--'}
-      </div>
-      {label && <div className="score-label">{label}</div>}
-    </div>
-  );
-};
+import { SectionHeader } from '../common/CommonComponents';
+import { ScoreDisplay } from '../common/ScoreDisplay';
 
 const AnalysisComparison = ({ cvText, jobDescription }) => {
   const calculateScore = (cvTerm, jdTerm) => {
@@ -35,24 +15,15 @@ const AnalysisComparison = ({ cvText, jobDescription }) => {
     <div className="comparison-section">
       <h3>Key Comparisons</h3>
       <div className="score-grid">
-        <ScoreDisplay 
-          score={calculateScore('education', 'education')} 
-          label="Education" 
-        />
-        <ScoreDisplay 
-          score={calculateScore('experience', 'experience')} 
-          label="Experience" 
-        />
-        <ScoreDisplay 
-          score={calculateScore('skill', 'skill')} 
-          label="Skills" 
-        />
+        <ScoreDisplay score={calculateScore('education', 'education')} label="Education" />
+        <ScoreDisplay score={calculateScore('experience', 'experience')} label="Experience" />
+        <ScoreDisplay score={calculateScore('skill', 'skill')} label="Skills" />
       </div>
     </div>
   );
 };
 
-export const Analysis = ({ score, justification, cvText, jobDescription }) => {
+const Analysis = ({ score, justification, cvText, jobDescription }) => {
   return (
     <div className="analysis-section">
       <div className="main-score-container">
@@ -68,3 +39,5 @@ export const Analysis = ({ score, justification, cvText, jobDescription }) => {
     </div>
   );
 };
+
+export default Analysis;

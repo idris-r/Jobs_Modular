@@ -1,0 +1,23 @@
+.optimize-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.save-buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.save-buttons button {
+  background: var(--gradient-secondary);
+}
+
+.optimize-section textarea {
+  background-color: var(--bg-tertiary);
+  margin: 1rem 0;
+}
